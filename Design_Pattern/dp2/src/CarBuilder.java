@@ -4,53 +4,59 @@ import enums.Transmission;
 import enums.Type;
 
 public class CarBuilder {
-    private Type carType;
-    private Engine engine;
-    private Transmission transmission;
-    private Suspension suspension;
 
-    static class Builder {
+    private final Type carType;
+    private final Engine engine;
+    private final Transmission transmission;
+    private final Suspension suspension;
+
+    private CarBuilder(Builder builder) {
+        this.carType = builder.carType;
+        this.engine = builder.engine;
+        this.transmission = builder.transmission;
+        this.suspension = builder.suspension;
+    }
+
+    public static class Builder {
         private Type carType;
         private Engine engine;
         private Transmission transmission;
         private Suspension suspension;
 
-        Builder setCarType(Type carType) {
+        public Builder setCarType(Type carType) {
             this.carType = carType;
             return this;
         }
 
-        Builder setEngine(Engine engine) {
+        public Builder setEngine(Engine engine) {
             this.engine = engine;
             return this;
         }
 
-        Builder setTransmission(Transmission transmission) {
+        public Builder setTransmission(Transmission transmission) {
             this.transmission = transmission;
             return this;
         }
 
-        Builder setSuspension(Suspension suspension) {
+        public Builder setSuspension(Suspension suspension) {
             this.suspension = suspension;
             return this;
         }
 
-        CarBuilder build() {
-            CarBuilder car = new CarBuilder();
-            car.carType = this.carType;
-            car.engine = this.engine;
-            car.transmission = this.transmission;
-            car.suspension = this.suspension;
-            return car;
+        public CarBuilder build() {
+            if (carType == null || engine == null || transmission == null || suspension == null) {
+                throw new IllegalStateException("Car type, engine, transmission and suspension  are required");
+            }
+            return new CarBuilder(this);
         }
     }
 
     public String showDetails() {
-        return "Car Details {" +
+        return "Car{" +
                 "type=" + carType +
                 ", engine=" + engine +
                 ", transmission=" + transmission +
                 ", suspension=" + suspension +
-                "}";
+                '}';
     }
 }

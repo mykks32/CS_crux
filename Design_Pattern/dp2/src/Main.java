@@ -5,15 +5,9 @@ import enums.Suspension;
 import enums.Transmission;
 import enums.Type;
 
-public class Main {
-    public static void main(String[] args) {
-    // FACTORY
-    System.out.println("------- FACTORY PATTERN -------");
-    Car car = CarFactory.getCar(Type.SUV);
-    System.out.println(car.drive());
-
+void main() {
     // BUILDER
-    System.out.println("\n------- BUILDER PATTERN -------");
+    IO.println("\n------- BUILDER PATTERN -------");
     CarBuilder carBuilder = new CarBuilder
             .Builder()
             .setCarType(Type.SEDAN)
@@ -21,18 +15,23 @@ public class Main {
             .setSuspension(Suspension.HIGH)
             .setTransmission(Transmission.MANUAL)
             .build();
-    System.out.println(carBuilder.showDetails());
+    IO.println(carBuilder.showDetails());
+
+    // FACTORY
+    IO.println("\n------- FACTORY PATTERN -------");
+    Car car = CarFactory.getCar(Type.SUV);
+    IO.println(car.drive());
 
     // DECORATOR
-    System.out.println("\n------- DECORATOR PATTERN -------");
+    IO.println("\n------- DECORATOR PATTERN -------");
     CarFeature carFeature = new GPS(new Insurance(new BasicCarFeatureDecorator()));
-    System.out.println(carFeature.getDescription() + " & " + "Cost: " + carFeature.Cost());
+    IO.println(carFeature.getDescription() + " & " + "Cost: " + carFeature.Cost());
 //
-//    // SINGLETON
-//    IO.println("\n------- SINGLETON PATTERN -------");
-//    PaymentServiceSingleton.getInstance().processPayment(feature.cost());
-//
-//    // OBSERVER
+//     SINGLETON
+    IO.println("\n------- SINGLETON PATTERN -------");
+    PaymentSingleton.getInstance().ProcessPayment(carFeature.Cost());
+
+//     OBSERVER
 //    IO.println("\n------- OBSERVER PATTERN -------");
 //    RentalOrderObserver order = new RentalOrderObserver();
 //    order.addObserver(new Customer("Alice"));
@@ -44,5 +43,4 @@ public class Main {
 //    IO.println("\n------- STRATEGY PATTERN -------");
 //    PaymentContext payment = new PaymentContext(new CardPayment());
 //    payment.pay(feature.cost());
-}
 }
