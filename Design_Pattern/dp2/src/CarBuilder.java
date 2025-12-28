@@ -9,7 +9,6 @@ public class CarBuilder {
     private final Engine engine;
     private final Transmission transmission;
     private final Suspension suspension;
-
     private CarBuilder(Builder builder) {
         this.carType = builder.carType;
         this.engine = builder.engine;
