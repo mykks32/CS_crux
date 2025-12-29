@@ -1,0 +1,14 @@
+{
+  "name": "data-structure-ts",
+  "version": "1.0.0",
+  "description": "Data Structure in Typescript",
+  "license": "ISC",
+  "author": "Shree Krishna Yadav",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
