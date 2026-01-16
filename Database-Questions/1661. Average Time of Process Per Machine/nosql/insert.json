@@ -1,0 +1,74 @@
+[
+  {
+    "machine_id": 0,
+    "process_id": 0,
+    "activity_type": "start",
+    "timestamp": 0.712
+  },
+  {
+    "machine_id": 0,
+    "process_id": 0,
+    "activity_type": "end",
+    "timestamp": 1.520
+  },
+  {
+    "machine_id": 0,
+    "process_id": 1,
+    "activity_type": "start",
+    "timestamp": 3.140
+  },
+  {
+    "machine_id": 0,
+    "process_id": 1,
+    "activity_type": "end",
+    "timestamp": 4.120
+  },
+  {
+    "machine_id": 1,
+    "process_id": 0,
+    "activity_type": "start",
+    "timestamp": 0.550
+  },
+  {
+    "machine_id": 1,
+    "process_id": 0,
+    "activity_type": "end",
+    "timestamp": 1.550
+  },
+  {
+    "machine_id": 1,
+    "process_id": 1,
+    "activity_type": "start",
+    "timestamp": 0.430
+  },
+  {
+    "machine_id": 1,
+    "process_id": 1,
+    "activity_type": "end",
+    "timestamp": 1.420
+  },
+  {
+    "machine_id": 2,
+    "process_id": 0,
+    "activity_type": "start",
+    "timestamp": 4.100
+  },
+  {
+    "machine_id": 2,
+    "process_id": 0,
+    "activity_type": "end",
+    "timestamp": 4.512
+  },
+  {
+    "machine_id": 2,
+    "process_id": 1,
+    "activity_type": "start",
+    "timestamp": 2.500
+  },
+  {
+    "machine_id": 2,
+    "process_id": 1,
+    "activity_type": "end",
+    "timestamp": 5.000
+  }
+]

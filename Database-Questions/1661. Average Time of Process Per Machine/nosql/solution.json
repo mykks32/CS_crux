@@ -1,0 +1,78 @@
+[
+  {
+    "$lookup": {
+      "from": "activity",
+      "let": {
+        "machine": "$machine_id",
+        "process": "$process_id"
+      },
+      "pipeline": [
+        {
+          "$match": {
+            "$expr": {
+              "$and": [
+                {
+                  "$eq": [
+                    "$machine_id",
+                    "$$machine"
+                  ]
+                },
+                {
+                  "$eq": [
+                    "$process_id",
+                    "$$process"
+                  ]
+                },
+                {
+                  "$eq": [
+                    "$activity_type",
+                    "end"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "as": "end_event"
+    }
+  },
+  {
+    "$unwind": "$end_event"
+  },
+  {
+    "$match": {
+      "activity_type": "start"
+    }
+  },
+  {
+    "$addFields": {
+      "process_time": {
+        "$subtract": [
+          "$end_event.timestamp",
+          "$timestamp"
+        ]
+      }
+    }
+  },
+  {
+    "$group": {
+      "_id": "$machine_id",
+      "processing_time": {
+        "$avg": "$process_time"
+      }
+    }
+  },
+  {
+    "$project": {
+      "_id": 0,
+      "machine_id": "$_id",
+      "processing_time": {
+        "$round": [
+          "$processing_time",
+          3
+        ]
+      }
+    }
+  }
+]
