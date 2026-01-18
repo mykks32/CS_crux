@@ -1,0 +1,61 @@
+[
+  {
+    "$group": {
+      "_id": "$customer_id",
+      "first_order_date": {
+        "$min": "$order_date"
+      },
+      "first_pref_delivery_date": {
+        "$first": "$customer_pref_delivery_date"
+      }
+    }
+  },
+  {
+    "$project": {
+      "immediate": {
+        "$cond": [
+          {
+            "$eq": [
+              "$first_order_date",
+              "$first_pref_delivery_date"
+            ]
+          },
+          1,
+          0
+        ]
+      }
+    }
+  },
+  {
+    "$group": {
+      "_id": null,
+      "total_customers": {
+        "$sum": 1
+      },
+      "immediate_count": {
+        "$sum": "$immediate"
+      }
+    }
+  },
+  {
+    "$project": {
+      "_id": 0,
+      "immediate_percentage": {
+        "$round": [
+          {
+            "$multiply": [
+              {
+                "$divide": [
+                  "$immediate_count",
+                  "$total_customers"
+                ]
+              },
+              100
+            ]
+          },
+          2
+        ]
+      }
+    }
+  }
+]
