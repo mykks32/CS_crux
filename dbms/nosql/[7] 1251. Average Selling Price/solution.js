@@ -37,6 +37,7 @@ db.prices.aggregate([
 	{
 		// Compute average_price safely
 		$project: {
+			_id: 0,
 			product_id: "$_id",
 			// calculate average_price (if totalUnits = 0, then average_price = 0)
 			average_price: {
