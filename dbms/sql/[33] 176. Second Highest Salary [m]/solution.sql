@@ -1,4 +1,5 @@
 -- First Way
+-- EXPLAIN ANALYZE
 SELECT ( SELECT DISTINCT salary
          FROM "Employee"
          ORDER BY salary DESC
@@ -18,6 +19,7 @@ SELECT ( SELECT DISTINCT salary
 -- +-------------------+
 
 -- Second Way
+-- EXPLAIN ANALYZE
 SELECT MAX(salary) AS "SecondHighestSalary"
 FROM "Employee"
 -- salary < Max(salary)
