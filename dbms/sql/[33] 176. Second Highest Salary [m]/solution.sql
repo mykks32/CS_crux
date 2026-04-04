@@ -32,7 +32,7 @@ WHERE salary < ( SELECT MAX(salary)
 );
 -- <- FINAL_OUTPUT ->
 -- +-------------------+
--- |secondhighestsalary|
+-- |SecondHighestSalary|
 -- +-------------------+
 -- |200                |
 -- +-------------------+
