@@ -252,12 +252,14 @@ db.users.aggregate([
 ```
 
 Regex options:
-| Option | Meaning |
-|--------|---------|
-| `i` | Case-insensitive |
-| `m` | Multiline (`^`/`$` match line boundaries) |
-| `x` | Extended (ignore whitespace) |
-| `s` | Dot matches newline |
+```
+| Option | Meaning          |
+|--------|------------------|
+| i  | Case-insensitive |
+| m  | Multiline (`^`/`$` match line boundaries) |
+| x  | Extended (ignore whitespace) |
+| s  | Dot matches newline |
+```
 
 ---
 
