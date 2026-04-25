@@ -46,6 +46,8 @@ mkdir -p "$FOLDER_PATH"
 # index.ts template
 cat <<EOL > "$FOLDER_PATH/index.ts"
 class {
+	constructor() {}
+
   /**
    * Problem: ${problem_name}
    * Category: ${category}
