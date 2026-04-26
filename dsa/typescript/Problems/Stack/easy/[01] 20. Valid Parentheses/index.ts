@@ -43,6 +43,7 @@ class ValidParentheses {
 		const stack = new Array<string>();
 
 		// Mapping of closing → opening brackets
+		// @ts-ignore
 		const parentheses = new Map<string, string>([
 			[')', '('],
 			['}', '{'],
