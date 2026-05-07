@@ -1,0 +1,27 @@
+{
+  "name": "binary-search-tree",
+  "version": "1.0.0",
+  "description": "Binary Search Tree implementation in TypeScript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "clean": "rm -rf dist",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "binary-tree",
+    "typescript",
+    "data-structure"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0",
+    "prettier": "^3.0.0"
+  },
+  "packageManager": "pnpm@10.31.0"
+}

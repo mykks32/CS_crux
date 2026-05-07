@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    // JavaScript version output (modern Node.js compatible)
+    "target": "ES2020",
+
+    // Module system (CommonJS = require/module.exports for Node)
+    "module": "commonjs",
+
+    // Source folder (where your .ts files live)
+    "rootDir": "./src",
+
+    // Output folder (compiled .js files go here)
+    "outDir": "./dist",
+
+    // Generate .d.ts files (useful for libraries / type support)
+    "declaration": true,
+
+    // Generate source maps for .d.ts files (debugging types)
+    "declarationMap": true,
+
+    // Generate source maps for JS debugging (maps .js → .ts)
+    "sourceMap": true,
+
+    // Enable strict type checking (recommended)
+    "strict": true,
+
+    // Fixes import compatibility issues (ESModule ↔ CommonJS)
+    "esModuleInterop": true,
+
+    // Skip checking type definitions in node_modules (faster build)
+    "skipLibCheck": true
+  },
+
+  // Only compile files inside src folder
+  "include": ["src/**/*"]
+}
